@@ -147,7 +147,7 @@ c1.id(); // TypeError -- `c1.id` is now the string "c1"
 
 There's also some very subtle nuanced issues with how `super` works. You might assume that `super` would be bound in an analogous way to how `this` gets bound (see Chapter 2), which is that `super` would always be bound to one level higher than whatever the current method's position in the `[[Prototype]]` chain is.
 
-However, for performance reasons (`this` binding is already expensive), `super` is not bound dynamically. It's bound sort of "statically", as declaration time. No big deal, right?
+However, for performance reasons (`this` binding is already expensive), `super` is not bound dynamically. It's bound sort of "statically", at declaration time. No big deal, right?
 
 Ehh... maybe, maybe not. If you, like most JS devs, start assigning functions around to different objects (which came from `class` definitions), in various different ways, you probably won't be very aware that in all those cases, the `super` mechanism under the covers is having to be re-bound each time.
 
